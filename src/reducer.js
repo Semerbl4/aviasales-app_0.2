@@ -33,7 +33,7 @@ const reducer = (state = initialState, action) => {
 
     case action.type === 'NONE':
       newState.filter.checkAll = false;
-      newState.filter.check0 = true;
+      newState.filter.check0 = !newState.filter.check0;
       return newState;
 
     case action.type === 'ONE':

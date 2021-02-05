@@ -4,43 +4,43 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-// import cn from 'classnames'
+import cn from 'classnames'
 
 import * as actions from '../../actions';
 
 import tabsStyle from './Tabs.module.scss';
 
 const Tabs = ({ tabCheap, cheap, notCheap }) => {
-  // const tabCheapCn = cn(tabsStyle['tabs-buttons'], {
-  //   [tabsStyle['tabs-buttons_selected']]: tabCheap,
-  // })
+  const tabCheapCn = cn(tabsStyle['tabs-buttons'], {
+    [tabsStyle['tabs-buttons_selected']]: tabCheap,
+  })
 
-  // const tabNotCheapCn = cn(tabsStyle['tabs-buttons'], {
-  //   [tabsStyle['tabs-buttons_selected']]: !tabCheap,
-  // })
+  const tabNotCheapCn = cn(tabsStyle['tabs-buttons'], {
+    [tabsStyle['tabs-buttons_selected']]: !tabCheap,
+  })
 
-  // console.log(tabsStyle)
+  console.log(tabsStyle)
 
-  const getCheapTabClass = (chp) => {
-    if (chp) {
-      return tabsStyle['tabs-buttons_selected'];
-    }
-    return tabsStyle['tabs-buttons'];
-  };
+  // const getCheapTabClass = (chp) => {
+  //   if (chp) {
+  //     return tabsStyle['tabs-buttons_selected'];
+  //   }
+  //   return tabsStyle['tabs-buttons'];
+  // };
 
-  const getNotCheapTabClass = (chp) => {
-    if (chp) {
-      return tabsStyle['tabs-buttons'];
-    }
-    return tabsStyle['tabs-buttons_selected'];
-  };
+  // const getNotCheapTabClass = (chp) => {
+  //   if (chp) {
+  //     return tabsStyle['tabs-buttons'];
+  //   }
+  //   return tabsStyle['tabs-buttons_selected'];
+  // };
 
   return (
     <div className={tabsStyle['tabs-container']}>
-      <button className={getCheapTabClass(tabCheap)} type="button" onClick={cheap}>
+      <button className={tabCheapCn} type="button" onClick={cheap}>
         САМЫЙ ДЕШЁВЫЙ, {tabCheap}
       </button>
-      <button className={getNotCheapTabClass(tabCheap)} type="button" onClick={notCheap}>
+      <button className={tabNotCheapCn} type="button" onClick={notCheap}>
         САМЫЙ БЫСТРЫЙ
       </button>
     </div>

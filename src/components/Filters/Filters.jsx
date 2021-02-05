@@ -3,18 +3,25 @@ import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
 
+import cn from 'classnames'
+
 import filtersStyle from './Filters.module.scss';
 
 import * as actions from '../../actions';
 
 // eslint-disable-next-line no-shadow
 const Filters = ({ checkAll, check0, check1, check2, check3, all, none, one, two, three }) => {
-  const getClass = (chk) => {
-    if (chk) {
-      return 'filters__visible-checked';
-    }
-    return 'filters__visible-check';
-  };
+
+  const getClass = (chk) => cn(filtersStyle['filters__visible-check'], {
+    [filtersStyle['filters__visible-checked']]: chk
+  })
+
+  // const getClass = (chk) => {
+  //   if (chk) {
+  //     return 'filters__visible-checked';
+  //   }
+  //   return 'filters__visible-check';
+  // };
 
   return (
     <form className={filtersStyle.filters}>
@@ -22,27 +29,27 @@ const Filters = ({ checkAll, check0, check1, check2, check3, all, none, one, two
         <legend className={filtersStyle['filters__set-title']}>КОЛИЧЕСТВО ПЕРЕСАДОК</legend>
         <label className={filtersStyle['filters__check-label']}>
           <input className={filtersStyle['filters__hidden-box']} type="checkbox" name="all" id="" onClick={all} />
-          <span className={filtersStyle[getClass(checkAll)]} />
+          <span className={getClass(checkAll)} />
           <p>Все</p>
         </label>
         <label className={filtersStyle['filters__check-label']}>
           <input className={filtersStyle['filters__hidden-box']} type="checkbox" name="all" id="" onClick={none} />
-          <span className={filtersStyle[getClass(check0)]} />
+          <span className={getClass(check0)} />
           <p>Без пересадок</p>
         </label>
         <label className={filtersStyle['filters__check-label']}>
           <input className={filtersStyle['filters__hidden-box']} type="checkbox" name="all" id="" onClick={one} />
-          <span className={filtersStyle[getClass(check1)]} />
+          <span className={getClass(check1)} />
           <p>1 пересадка</p>
         </label>
         <label className={filtersStyle['filters__check-label']}>
           <input className={filtersStyle['filters__hidden-box']} type="checkbox" name="all" id="" onClick={two} />
-          <span className={filtersStyle[getClass(check2)]} />
+          <span className={getClass(check2)} />
           <p>2 пересадки</p>
         </label>
         <label className={filtersStyle['filters__check-label']}>
           <input className={filtersStyle['filters__hidden-box']} type="checkbox" name="all" id="" onClick={three} />
-          <span className={filtersStyle[getClass(check3)]} />
+          <span className={getClass(check3)} />
           <p>3 пересадки</p>
         </label>
       </fieldset>

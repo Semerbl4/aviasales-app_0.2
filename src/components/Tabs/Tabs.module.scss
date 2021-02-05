@@ -26,21 +26,17 @@ $activeBackground: #2196f3;
   border-radius: 0 5px 5px 0;
 }
 
-.tabs-buttons:hover,
-.tabs-buttons_selected {
+.tabs-buttons:hover {
   background-color: $activeBackground;
   color: $elements-background;
   outline: none;
 }
 
 .tabs-buttons_selected {
-  font-weight: 600;
-  flex-grow: 1;
+  outline: none;
+}
+
+.tabs-buttons_selected {
   background-color: $activeBackground;
   color: $elements-background;
-  border: 1px solid #dfe5ec;
-  transition: 200ms;
-  cursor: pointer;
-  line-height: 20px;
-  letter-spacing: 0.5px;
 }
